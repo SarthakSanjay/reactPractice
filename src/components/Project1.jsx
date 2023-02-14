@@ -4,15 +4,15 @@ import data1 from './data1'
 import List from './List'
 const Project1 = () => {
   const [data_length , setDataLength] =useState(data1.length)
-  
+
   const handleClick = () => {
     setDataLength(0)
   }
   return (
    <Container>
       <h1>{data_length} birthdays today</h1>
-      {console.log(data1.length)}
-      {data1.map((e) => {
+      {data_length?  
+        data1.map((e) => {
         return(
           <List img={e.image}
           name={e.name}
@@ -20,9 +20,10 @@ const Project1 = () => {
           key={e.id}  />
           
         )
-      })}
-      <List data={data1} />
-      {/* {console.log(data1)} */}
+      }):
+      ""
+      }
+   
 
       <button onClick={handleClick}>Clear All</button>
    </Container>
@@ -32,15 +33,16 @@ const Project1 = () => {
 const Container = styled.div`
 background-color: white;
 color: black;
-width: 450px;
-margin-top: 200px;
-padding: 3rem;
+width: 250px;
+margin: 100px 0px;
+padding: 1rem;
 button{
   
   background-color: pink;
   border: none;
   outline: none;
-  width: 400px;
+  width: 200px;
+  height: 50px;
   margin: 0 25px;
 }
 

@@ -7,7 +7,7 @@ const List = (props) => {
       <img src={props.img} />
       <div>
       <h3>{props.name}</h3>
-      <p>{props.age}</p>
+      <p>{props.age} years</p>
       </div>
     </Container>
   )
@@ -24,7 +24,11 @@ img{
 
 }
 div{
-
+padding: 10px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: flex-start;
 }
 `
 
