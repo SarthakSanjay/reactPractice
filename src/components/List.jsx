@@ -1,10 +1,31 @@
 import React from 'react'
-import data1 from './data1'
+import styled from 'styled-components'
 
-const List = () => {
+const List = (props) => {
   return (
-    <div>{data1.name}</div>
+    <Container> 
+      <img src={props.img} />
+      <div>
+      <h3>{props.name}</h3>
+      <p>{props.age}</p>
+      </div>
+    </Container>
   )
 }
+const Container = styled.div`
+height: 60px;
+width: 400px;
+display: flex;
+
+img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+}
+div{
+
+}
+`
 
 export default List
