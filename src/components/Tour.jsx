@@ -7,8 +7,10 @@ const Tour = (props) => {
 
     const [paragraph , setParagraph] = useState(first30words)
     const [readStatus , setReadStatus] = useState("Read More")
+    const [display ,setDisplay] = useState("block")
+    
     const handleCLick = () => {
-        
+        setDisplay("none")
     }
     const readMore = () => {
         setParagraph(props.info)
@@ -20,18 +22,21 @@ const Tour = (props) => {
         setReadStatus("Read More")
     }
     // console.log(props.info.split(" ").length)
-  return (
-    <Container>
-        <img src={props.img} />
-        <div className='heading'>
-        <h4>{props.name}</h4>
-        <h4 className='price'>$ {props.price}</h4>
-        </div>
-        <p>{paragraph}...{readStatus ==="Read More" ? <span onClick={readMore}>{readStatus}</span> : <span onClick={readLess}>{readStatus}</span>}
-        </p>
-        <button onClick={handleCLick}>Not Interested</button>
-    </Container>
-  )
+// 
+return (
+        <Container style={{display:`${display}`}}>
+            <img src={props.img} />
+            <div className='heading'>
+            <h4>{props.name}</h4>
+            <h4 className='price'>$ {props.price}</h4>
+            </div>
+            <p>{paragraph}...{readStatus ==="Read More" ? <span onClick={readMore}>{readStatus}</span> : <span onClick={readLess}>{readStatus}</span>}
+            </p>
+            <button onClick={handleCLick}>Not Interested</button>
+        </Container>
+      )
+
+
 }
 
 const Container = styled.div`
@@ -68,7 +73,7 @@ button{
     border-radius: 5px;
     width:200px;
     height: 30px;
-    margin: 0 180px;
+    margin: 10px 180px;
 }
 
 `

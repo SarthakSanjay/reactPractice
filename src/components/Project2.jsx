@@ -23,15 +23,23 @@ const Project2 = () => {
     return (
         <Container>
             {tourData.map((obj) => {
-                return (
+                let count = 0;
+                if (count != tourData.length) {
 
-                    <Tour key={obj.id}
-                          name = {obj.name}
-                          info = {obj.info}
-                          img = {obj.image}
-                          price = {obj.price}
-                     />
-                )
+                    return (
+
+                        <Tour key={obj.id}
+                            name={obj.name}
+                            info={obj.info}
+                            img={obj.image}
+                            price={obj.price}
+                            tourLength={tourData.length}
+                        />
+                    )
+                }
+                if (count === tourData.length) {
+                    return <h1>No data</h1>
+                }
             })}
         </Container>
     )
